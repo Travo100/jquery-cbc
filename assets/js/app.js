@@ -22,9 +22,24 @@ var boxes = [
 
 var randomNumber = getRandomInt(1, 4);
 var userGuesses = 2;
+var intervalId;
+var count = 5;
+
 
 $("#randomNumber").text(randomNumber);
 $("#userGuess").text(userGuesses);
+
+$("#start-game").on("click", function(){
+    clearInterval(intervalId);
+    intervalId = setInterval(function(){
+        $("#timeLeft").text(count);
+        count--;
+        if(count < 0) {
+            alert("Time up you lose!");
+            restartGame();
+        }
+    }, 1000);
+});
 
 function startGame() {
     // add the boxes 
@@ -55,6 +70,7 @@ function restartGame() {
     // update the UI to reflect it
     $("#userGuess").text(userGuesses);
     $("#randomNumber").text(randomNumber);
+    count = 5;
 }
 
 
