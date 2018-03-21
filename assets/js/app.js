@@ -26,7 +26,6 @@ var userGuesses = 2;
 $("#randomNumber").text(randomNumber);
 $("#userGuess").text(userGuesses);
 
-
 function startGame() {
     // add the boxes 
     // to the game with a random score 
